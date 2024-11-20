@@ -1,0 +1,103 @@
+import java.util.Scanner;
+
+        public class Reto2part2 {
+
+
+public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Definir variables para el control del negocio
+        int totalCompras = 0;
+        int totalVentas = 0;
+        double ingresosVentas = 0;
+        double egresosCompras = 0;
+        double montoCaja = 0;
+
+        // Definir usuario y contraseña
+        String usuarioCorrecto = "x";
+        String contrasenaCorrecta = "x";
+        
+        // Solicitar usuario y contraseña
+        boolean credencialesCorrectas = false;
+        while (!credencialesCorrectas) {
+            System.out.print("Ingrese usuario: ");
+            String usuario = scanner.nextLine();
+            System.out.print("Ingrese contraseña: ");
+            String contrasena = scanner.nextLine();
+
+            credencialesCorrectas = usuario.equals(usuarioCorrecto) && contrasena.equals(contrasenaCorrecta);
+
+            if (!credencialesCorrectas) {
+                System.out.println("Usuario o contraseña incorrectos. Intente nuevamente.");
+            }
+        }
+
+        int opcion;
+        do {
+            // Mostrar menú
+            System.out.println("\nMenú:");
+            System.out.println("1. Comprar cajas de papel");
+            System.out.println("2. Vender cajas de papel");
+            System.out.println("3. Mostrar reporte");
+            System.out.println("4. Salir del programa");
+
+            System.out.print("Seleccione una opción: ");
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    // Comprar cajas de papel
+                    System.out.print("Número de cajas a comprar: ");
+                    int numCajasCompra = scanner.nextInt();
+                    System.out.print("Costo de las cajas a comprar: ");
+                    double costoCompra = scanner.nextDouble();
+
+                    totalCompras += numCajasCompra;
+                    egresosCompras += costoCompra;
+                    montoCaja -= costoCompra;
+
+                    System.out.println("La compra realizada por " + numCajasCompra + " cajas al costo $" + costoCompra + " es igual a $" + costoCompra);
+                    break;
+                case 2:
+                    // Vender cajas de papel
+                    System.out.print("Número de cajas a vender: ");
+                    int numCajasVenta = scanner.nextInt();
+                    System.out.print("Precio de las cajas a vender: ");
+                    double precioVenta = scanner.nextDouble();
+
+                    totalVentas += numCajasVenta;
+                    ingresosVentas += precioVenta;
+                    montoCaja += precioVenta;
+
+                    System.out.println("La venta realizada por " + numCajasVenta + " cajas al precio $" + precioVenta + " es igual a $" + precioVenta);
+                    break;
+                case 3:
+                    // Mostrar reporte
+                    System.out.println("Cantidad total de ventas: " + totalVentas);
+                    System.out.println("Cantidad total de compras: " + totalCompras);
+                    System.out.println("Ingresos generados por ventas: $" + ingresosVentas);
+                    System.out.println("Egresos generados por compras: $" + egresosCompras);
+                    System.out.println("Monto en la caja: $" + montoCaja);
+                    break;
+                case 4:
+                    // Salir del programa
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intente nuevamente.");
+            }
+        } while (opcion != 4);
+
+        // Mostrar resumen
+        System.out.println("\nResumen:");
+        System.out.println("Cantidad total de operaciones realizadas: " + (totalCompras + totalVentas));
+        System.out.println("Cantidad total de ventas: " + totalVentas);
+        System.out.println("Cantidad total de compras: " + totalCompras);
+        System.out.println("Monto en la caja: $" + montoCaja);
+        System.out.println("Ingresos generados por ventas: $" + ingresosVentas);
+        System.out.println("Egresos generados por compras: $" + egresosCompras);
+        System.out.println("¡Gracias por utilizar el programa!");
+
+        // Cerrar el scanner
+        scanner.close();
+    }
+}

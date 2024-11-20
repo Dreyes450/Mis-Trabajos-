@@ -1,0 +1,121 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author Daniel
+ */
+public class Reto3part1 {
+
+   private static final int TAMANIO_DICCIONARIO = 10;
+
+    // Vectores para almacenar palabras y significados
+    private static String[] palabras = new String[TAMANIO_DICCIONARIO];
+    private static String[] significados = new String[TAMANIO_DICCIONARIO];
+
+    public static void main(String[] args) {
+        inicializarDiccionario();
+
+        Scanner scanner = new Scanner(System.in);
+        char opcion;
+
+        do {
+            mostrarMenu();
+            opcion = scanner.next().charAt(0);
+
+            switch (opcion) {
+                case 'A':
+                    enlistarPalabras();
+                    break;
+                case 'B':
+                    buscarPalabra(scanner);
+                    break;
+                case 'C':
+                    mostrarDetalleDiccionario();
+                    break;
+                case 'S':
+                    System.out.println("Programa finalizado.");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intente nuevamente.");
+            }
+
+        } while (opcion != 'S');
+
+        scanner.close();
+    }
+
+    private static void inicializarDiccionario() {
+        // Inicializar palabras y significados (puedes personalizar según tus necesidades)
+        palabras[0] = "Java";
+        significados[0] = "Lenguaje de programación";
+
+        palabras[1] = "C";
+        significados[1] = "Lenguaje de programación";
+
+        // Agrega más palabras y significados según tus necesidades
+    }
+
+    private static void mostrarMenu() {
+        System.out.println("\nMenú:");
+        System.out.println("A. Enlistar palabras del diccionario");
+        System.out.println("B. Buscar palabras en el diccionario");
+        System.out.println("C. Detalle del diccionario");
+        System.out.println("S. Finalizar programa");
+        System.out.print("Seleccione una opción: ");
+    }
+
+    private static void enlistarPalabras() {
+        System.out.println("\nPalabras en el diccionario:");
+        for (String palabra : palabras) {
+            if (palabra != null) {
+                System.out.println("- " + palabra);
+            }
+        }
+    }
+
+    private static void buscarPalabra(Scanner scanner) {
+        System.out.print("\nIngrese la palabra que desea buscar: ");
+        String palabraBuscada = scanner.next();
+
+        int indice = buscarIndicePalabra(palabraBuscada);
+
+        if (indice != -1) {
+            System.out.println("Significado de '" + palabraBuscada + "': " + significados[indice]);
+        } else {
+            System.out.println("La palabra '" + palabraBuscada + "' no existe en el diccionario.");
+        }
+    }
+
+    private static int buscarIndicePalabra(String palabra) {
+        for (int i = 0; i < palabras.length; i++) {
+            if (palabras[i] != null && palabras[i].equalsIgnoreCase(palabra)) {
+                return i;
+            }
+        }
+        return -1; // No se encontró la palabra
+    }
+
+    private static void mostrarDetalleDiccionario() {
+        System.out.println("\nDetalle del diccionario:");
+        System.out.println("Cantidad de palabras en el diccionario: " + contarPalabras());
+
+        for (int i = 0; i < palabras.length; i++) {
+            if (palabras[i] != null) {
+                System.out.println("- Palabra: " + palabras[i] +
+                                   " | Cantidad de caracteres: " + palabras[i].length() +
+                                   " | Significado: " + significados[i] +
+                                   " | Cantidad de caracteres: " + significados[i].length());
+            }
+        }
+    }
+
+    private static int contarPalabras() {
+        int contador = 0;
+        for (String palabra : palabras) {
+            if (palabra != null) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+}

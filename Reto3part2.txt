@@ -1,0 +1,105 @@
+import java.util.Random;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Daniel
+ */
+public class Reto3part2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        int filas, columnas;
+
+        // Solicitar al usuario la cantidad de filas y columnas hasta que sean iguales
+        do {
+            System.out.print("Ingrese la cantidad de filas: ");
+            filas = scanner.nextInt();
+            System.out.print("Ingrese la cantidad de columnas: ");
+            columnas = scanner.nextInt();
+
+            if (filas != columnas) {
+                System.out.println("Por favor, ingrese valores iguales para filas y columnas.");
+            }
+        } while (filas != columnas);
+
+        // Inicializar el arreglo bidimensional y llenarlo con valores aleatorios
+        int[][] arreglo = new int[filas][columnas];
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                arreglo[i][j] = random.nextInt(100) + 1;
+            }
+        }
+
+        // Mostrar el arreglo
+        System.out.println("Arreglo generado:");
+        mostrarArreglo(arreglo);
+
+        // Conteo de números pares e impares por filas
+        System.out.println("\nConteo por filas:");
+        contarParesImparesPorFilas(arreglo);
+
+        // Conteo de números pares e impares por columnas
+        System.out.println("\nConteo por columnas:");
+        contarParesImparesPorColumnas(arreglo);
+
+        // Suma de todos los números del vector
+        int sumaTotal = sumarTodosLosNumeros(arreglo);
+        System.out.println("\nSuma total de todos los números: " + sumaTotal);
+
+        // Cerrar el scanner
+        scanner.close();
+    }
+
+    // Método para mostrar el arreglo bidimensional
+    private static void mostrarArreglo(int[][] arreglo) {
+        for (int i = 0; i < arreglo.length; i++) {
+            for (int j = 0; j < arreglo[i].length; j++) {
+                System.out.print(arreglo[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    // Método para contar números pares e impares por filas
+    private static void contarParesImparesPorFilas(int[][] arreglo) {
+        for (int i = 0; i < arreglo.length; i++) {
+            int pares = 0, impares = 0;
+            for (int j = 0; j < arreglo[i].length; j++) {
+                if (arreglo[i][j] % 2 == 0) {
+                    pares++;
+                } else {
+                    impares++;
+                }
+            }
+            System.out.println("Fila " + (i + 1) + ": Pares = " + pares + ", Impares = " + impares);
+        }
+    }
+
+    // Método para contar números pares e impares por columnas
+    private static void contarParesImparesPorColumnas(int[][] arreglo) {
+        for (int j = 0; j < arreglo[0].length; j++) {
+            int pares = 0, impares = 0;
+            for (int i = 0; i < arreglo.length; i++) {
+                if (arreglo[i][j] % 2 == 0) {
+                    pares++;
+                } else {
+                    impares++;
+                }
+            }
+            System.out.println("Columna " + (j + 1) + ": Pares = " + pares + ", Impares = " + impares);
+        }
+    }
+
+    // Método para sumar todos los números del vector
+    private static int sumarTodosLosNumeros(int[][] arreglo) {
+        int suma = 0;
+        for (int i = 0; i < arreglo.length; i++) {
+            for (int j = 0; j < arreglo[i].length; j++) {
+                suma += arreglo[i][j];
+            }
+        }
+        return suma;
+    }
+}

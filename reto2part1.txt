@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author Daniel
+ */
+public class Reto2part1 {
+
+ public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el número de calificaciones a capturar: ");
+        int numeroCalificaciones = scanner.nextInt();
+
+        if (numeroCalificaciones <= 0) {
+            System.out.println("El número de calificaciones debe ser mayor a cero.");
+            return;
+        }
+
+        double sumaCalificaciones = 0;
+
+        for (int i = 1; i <= numeroCalificaciones; i++) {
+            System.out.print("Ingrese la calificación #" + i + ": ");
+            double calificacion = scanner.nextDouble();
+            sumaCalificaciones += calificacion;
+        }
+
+        double promedio = sumaCalificaciones / numeroCalificaciones;
+
+        System.out.println("El promedio de las calificaciones es: " + promedio);
+
+        scanner.close();
+    }
+}

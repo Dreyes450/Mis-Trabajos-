@@ -1,0 +1,54 @@
+ estudiantes = []
+
+def agregar_estudiante(nombre, calificacion):
+    estudiantes.append({"nombre": nombre,
+                        "calificacion": calificacion})
+
+def modificar_calificacion(nombre, nueva_calificacion):
+    for estudiante in estudiantes:
+        if estudiante["nombre"] == nombre:
+            estudiante["calificacion"] = nueva_calificacion
+
+def eliminar_estudiante(nombre):
+    global estudiantes
+    estudiantes = [e for e in estudiantes if e["nombre"] != nombre]
+
+def mostrar_estudiantes():
+    for estudiante in estudiantes:
+        print(f"Nombre: {estudiante['nombre']}, Calificacion: {estudiante['calificacion']}")
+
+def calcular_promedio():
+    total_calificaciones = sum(e["calificacion"] for e in estudiantes)
+    promedio = total_calificaciones / len(estudiantes)
+    print(f"Calificaciones promedio = {promedio}")
+
+
+
+def modificar_calificacion(nombre, nueva_calificacion):
+    for estudiante in estudiantes:
+        if estudiante["nombre"] == nombre:
+            estudiante["calificacion"] = nueva_calificacion
+
+def eliminar_estudiante(nombre):
+    global estudiantes
+    estudiantes = [e for e in estudiantes if e["nombre"] != nombre]
+
+def mostrar_estudiantes():
+    for estudiante in estudiantes:
+        print(f"Nombre: {estudiante['nombre']}, Calificacion: {estudiante['calificacion']}")
+
+def calcular_promedio():
+    total_calificaciones = sum(e["calificacion"] for e in estudiantes)
+    promedio = total_calificaciones / len(estudiantes)
+    print(f"Calificaciones promedio = {promedio}")
+
+#Ejemplo de Uso
+agregar_estudiante("Daniel", 10)
+agregar_estudiante("Daniel2", 5)
+agregar_estudiante("Adrian", 0)
+mostrar_estudiantes()
+modificar_calificacion("Daniel", 9)
+mostrar_estudiantes()
+calcular_promedio()
+eliminar_estudiante("Daniel2")
+mostrar_estudiantes()
