@@ -1,0 +1,18 @@
+.lista-productos{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1ifr));
+    justify-content: center;
+    gap: 1em;
+}
+.producto{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.producto p{
+    font-weight: 600;
+}
+.producto img{
+    height: auto;
+    border-radius: 10px;
+}

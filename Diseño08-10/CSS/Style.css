@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&family=BBH+Sans+Bogle&display=swap');.item{
+    width: 150px;
+    height: 150px;
+    background-color: hotpink;
+    padding: 1em;
+    color: aliceblue;
+    text-align: center;
+    border: 10px solid red;
+    border-radius: 10px;
+    font-family: "BBH Sans Bartle", sans-serif; 
+    font-weight: 500;
+}
+.contenedor{
+    width: 90%;
+    height: 700px;
+    margin: 0 auto;
+    border: 10px solid black;
+
+}
+.contenedor{
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: bold;    
+    text-align: center;
+    }
+    .wrapper > *{
+    padding: 10px;
+    flex: 1 100%;
+    }
+
+    .header{
+    background-color: tomato;
+    }
+    .footer{
+    background-color: lightgreen;
+    }
+    .main{
+    background-color: aqua;
+    text-align: left;
+    }
+    .aside-1{
+    background-color: yellow;
+    }
+    .aside-2{
+    background-color: hotpink;
+    }
+
+    @media all and (min-width: 600px){
+    .aside { flex: 1 0 0; }
+    }
+
+    @media all and (min-width: 800px){
+    .main{flex: 3 0px;}
+    .aside-1{order: 1;}
+    .main{order: 2;}
+    .aside-2{order: 3;}
+    .footer{order: 4;}
+    }
+
+    body{
+    padding: 2em;
+    }
+.navegacion{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    background: deepskyblue;
+}
+.navegacion a{
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    color: white;
+}
+.navegacion a:hover{
+    background: darkblue;
+}

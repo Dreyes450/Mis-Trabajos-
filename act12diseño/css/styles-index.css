@@ -1,0 +1,54 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 300px 300px 300px;
+    justify-items: center;
+    align-items: center;
+}
+.item{
+    height: 100px;
+    width: 100px;
+    padding: 2em;
+    background-color: rgb(71,71,152);
+    color: white;
+    text-align: center;
+    border-radius: 8%;
+    font-size: 2em;
+}
+button{
+    padding: 9px 25px;
+    background-color: rgb(30,44,76);
+    border: none;
+    border-radius: 18px;
+    margin-top: 5%;
+    margin-left: 50%;
+    color: aliceblue;
+    font-weight: 600;
+    transition: all 0.5s ease;
+    @media(max-width: 56em){
+    .grid-container{
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-areas: 
+    "box-1 box-1 box-2"
+    "box-1 box-1 box-3"
+    "box-4 box-5 box-5";
+    }
+
+}
+@media(max-width: 42em){
+    .grid-container{
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 200px 200px 200px 200px;
+    grid-template-areas: 
+    "box-1 box-2"
+    "box-3 box-2"
+    "box-3 box-4"
+    "box-5 box-4";
+    }
+
+}
+}
+button:hover{
+background-color: rgb(30,44,76,0.60);
+}

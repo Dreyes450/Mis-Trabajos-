@@ -1,0 +1,51 @@
+.btn{
+    font-size: 32px;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    color: rgb(124, 0, 0);
+    background-color: rgb(255, 209, 217);
+    border: 10px solid red;
+    border-radius: 6px;
+    transition: all 0.3;
+
+}
+
+.btn:hover{
+    transform: translateY(-10px);
+    background-color: brown;
+    color: white;
+}
+ .elemento{
+    height: 200px;
+    width: 200px;
+    background-color: rgb(69, 99, 182);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: aliceblue;
+
+    animation-name: giro;
+    animation-duration: 3s;
+    animation-timing-function: ease-in;
+    animation-delay: 0.5s;
+    animation-iteration-count: 2;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+ }
+@keyframes giro {
+    0%{    
+    }
+    50%{
+        scale: 2;
+        transform: rotate(0);
+        border-radius: 0;
+    }
+    100%{
+        transform: rotate(360deg);
+        border-radius: 50%;
+        scale: 2;
+    }
+}
